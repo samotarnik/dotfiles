@@ -1,0 +1,22 @@
+# basic
+alias t="tree -dL 2"
+
+# git
+alias g="git status"
+alias ga="git add"
+alias gai="git add -i"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gl="git log --oneline"
+alias glg="git log --graph --oneline --all"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gb="git branch"
+alias gco="git checkout"
+alias gmy="git log --author=samo --pretty=format:'%h%x09%an%x09%ad%x09%s'"
+alias gru="git remote update --prune"
+alias gpud="git pull upstream develop"
+
+
+alias zen="cd /work/job/proj/zengrc/"
+
