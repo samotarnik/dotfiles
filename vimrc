@@ -18,7 +18,8 @@ set shiftwidth=2        " number of space characters inserted for indentation
 set laststatus=2        " airline appears all the time
 let g:airline#extensions#tabline#enabled = 1
 
-set rnu                 " relative line numbers
+set nu                  " first, line numbers
+set rnu                 " then relative line numbers
 set cursorline          " highlight current line
 set colorcolumn=80      " marker at column 80      
 set showmatch           " highlight matching [{()}]
@@ -52,7 +53,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" remap :x
+:cnoreabbrev x w<bar>bd
 
-
-
+" python indenting
+autocmd FileType python setlocal shiftwidth=2 tabstop=2
 
