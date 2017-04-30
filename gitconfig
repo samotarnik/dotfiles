@@ -1,0 +1,12 @@
+[user]
+	name = samo ratnik
+	email = samo.ratnik@gmail.com
+[color]
+	ui = auto
+[core]
+	editor = vim
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+	br = branch
