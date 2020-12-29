@@ -18,5 +18,6 @@ alias gru="git remote update --prune"
 alias gpud="git pull upstream develop"
 
 
-alias zen="cd /work/job/proj/zengrc/"
-
+alias curr="vim ~/CURRENT"
+alias dkr="docker"
+alias dco="docker-compose"
