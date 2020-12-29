@@ -1,38 +1,43 @@
 
-set nocompatible
+set nocompatible    " use iMproved
 
-execute pathogen#infect()
+" vim-plug config
+call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-sensible'
+Plug 'jnurmine/Zenburn'
+Plug 'ctrlpvim/ctrlp.vim'
+
+" the next command automatically executes
+" - filetype plugin indent on (filetype specific indents)
+" - syntax enable
+call plug#end()
+
+" colors
 set t_Co=256
 colorscheme zenburn
 
-syntax enable           " enable syntax processing
-filetype plugin indent on
-
+" basics
 set expandtab           " tabs are spaces
-set tabstop=2           " number of visual spaces per TAB
-set softtabstop=2       " number of spaces in tab when editing
-set shiftwidth=2        " number of space characters inserted for indentation
-
-" airline
-set laststatus=2        " airline appears all the time
-let g:airline#extensions#tabline#enabled = 1
+set tabstop=4           " number of visual spaces per TAB
+set softtabstop=4       " number of spaces in tab when editing
+set shiftwidth=4        " number of space characters inserted for indentation
 
 set nu                  " first, line numbers
 set rnu                 " then relative line numbers
 set cursorline          " highlight current line
-set colorcolumn=80      " marker at column 80      
+set colorcolumn=120     " marker at column 120
 set showmatch           " highlight matching [{()}]
-set autoindent
+set autoindent          " automatic indentation of next line
 
-" make backspace behave 'normally'
-set backspace=indent,eol,start
-
+set lazyredraw          " do not redraw screen during macros (smoother)
 
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
-set ignorecase
-set smartcase
+set ignorecase          " ignore case in lowercase search queries
+set smartcase           " switch to case sensitive when uppercase is used
+
+set backspace=indent,eol,start  " make backspace behave 'normally'
 
 set wrap
 set linebreak
@@ -41,11 +46,22 @@ set directory=$HOME/.vim/swapfiles//
 
 set encoding=utf-8
 
+" strip trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" airline
+"set laststatus=2        " airline appears all the time
+"let g:airline#extensions#tabline#enabled = 1
+
+" https://github.com/vim-airline/vim-airline/issues/124
+"set ttimeoutlen=0
+
+
+
+
 set autoread
 set history=1000
 
-" save in insert mode
-inoremap <C-s> <ESC>:w<CR>i
 
 " hard mode
 noremap <Up> <NOP>
@@ -53,9 +69,11 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+
+
 " remap :x
 :cnoreabbrev x w<bar>bd
 
-" python indenting
-autocmd FileType python setlocal shiftwidth=2 tabstop=2
 
+let g:go_fmt_command = "goimports"
+let g:go_fmt_options = "-w"
